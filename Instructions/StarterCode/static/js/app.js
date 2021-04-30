@@ -5,9 +5,10 @@ let tableData = data;
 let tbody = d3.select("tbody");
 let button = d3.select("#filter-btn");
 let inputField1 = d3.select("#datetime");
-let  inputField2 = d3.select("#city");
-let  resetbtn = d3.select("#reset-btn");
-let  columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
+let inputField2 = d3.select("#city");
+let inputField3 = d3.select("#country");
+let resetbtn = d3.select("#reset-btn");
+let columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
 
 let  populate = (dataInput) => {
 
@@ -33,15 +34,17 @@ button.on("click", () => {
 	console.log(filterCity)
 	let  filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity);
 	console.log(filterData)
-	let  filterShape = data.fileter(data => data.shape === inputShape);
-	console.log(filterShape)
+	let  filterCountry= data.filter(data => data.country === inputCountry);
+	console.log(filterCountry)
+	// let  filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity && === inputCountry);
+	// console.log(filterData)
 	
 
 	// Add filtered sighting to table
 	tbody.html("");
 
 	let response = {
-		filterData, filterCity, filterDate
+		filterData, filterCity, filterDate, filterCountry
 	}
 
 	if (response.filterData.length !== 0) {
