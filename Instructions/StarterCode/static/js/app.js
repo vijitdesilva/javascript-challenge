@@ -27,15 +27,17 @@ button.on("click", () => {
 	d3.event.preventDefault();
 	let  inputDate = inputField1.property("value").trim();
 	let  inputCity = inputField2.property("value").toLowerCase().trim();
+	let  inputCountry = inputField3.property("value").trim();
 // Filter by field matching input value
 	let  filterDate = data.filter(data => data.datetime === inputDate);
 	console.log(filterDate)
 	let  filterCity = data.filter(data => data.city === inputCity);
 	console.log(filterCity)
-	let  filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity);
-	console.log(filterData)
 	let  filterCountry= data.filter(data => data.country === inputCountry);
 	console.log(filterCountry)
+	let  filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity && data.country === inputCountry);
+	console.log(filterData)
+	
 	// let  filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity && === inputCountry);
 	// console.log(filterData)
 	
@@ -50,8 +52,8 @@ button.on("click", () => {
 	if (response.filterData.length !== 0) {
 		populate(filterData);
 	}
-		else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0))){
-			populate(filterCity) || populate(filterDate);
+		else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0 || response.filterCountry.length !== 0))){
+			populate(filterCity) || populate(filterDate) || populate(filterCountry);
 	
 		}
 		else {
