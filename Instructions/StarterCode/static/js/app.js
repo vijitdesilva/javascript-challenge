@@ -41,7 +41,7 @@ button.on("click", () => {
 	console.log(filterState)
 	let  filterCountry = data.filter(data => data.country === inputCountry);
 	console.log(filterCountry)
-	let filterShape = data.filter(data => data.shape === inputShape);
+	let  filterShape = data.filter(data => data.shape === inputShape);
 	console.log(filterShape)
 	let  filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity && data.state === inputState && data.country === inputCountry && data.shape === inputShape);
 	console.log(filterData)
