@@ -1,7 +1,7 @@
 // from data.js
 let tableData = data;
 
-// YOUR CODE HERE!
+// Assign variables
 let tbody = d3.select("tbody");
 let button = d3.select("#filter-btn");
 let inputField1 = d3.select("#datetime");
@@ -32,6 +32,7 @@ button.on("click", () => {
 	let  inputState = inputField3.property("value").trim();
 	let  inputCountry = inputField4.property("value").trim();
 	let  inputShape = inputField5.property("value").trim();
+
 // Filter by field matching input value
 	let  filterDate = data.filter(data => data.datetime === inputDate);
 	console.log(filterDate)
@@ -54,7 +55,7 @@ button.on("click", () => {
 
 	let response = {
 		// filterData, filterCity, filterDate, filterCountry, filterState 
-		filterData, filterCity, filterDate, filterState, filterCountry, filterShape
+		filterData, filterDate
 	}
 
 	if (response.filterData.length !== 0) {
@@ -62,8 +63,8 @@ button.on("click", () => {
 	}
 		//else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0 || response.filterCountry.length !== 0 ))){
 			//populate(filterCity) || populate(filterDate) || populate(filterCountry);
-		else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0 || response.filterState.length !== 0 || response.filterCountry.length !== 0 || response.filterShape.length !== 0))){
-			populate(filterCity) || populate(filterDate) || populate(filterState) || populate(filterCountry) || populate(filterShape);
+		else if (response.filterData.length === 0 && (( response.filterDate.length !== 0))){
+			 populate(filterDate);
 		}
 		else {
 			tbody.append("tr").append("td").text("No results found!"); 
