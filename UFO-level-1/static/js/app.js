@@ -32,7 +32,6 @@ button.on("click", () => {
 	let  inputState = inputField3.property("value").trim();
 	let  inputCountry = inputField4.property("value").trim();
 	let  inputShape = inputField5.property("value").trim();
-
 // Filter by field matching input value
 	let  filterDate = data.filter(data => data.datetime === inputDate);
 	console.log(filterDate)
@@ -55,7 +54,7 @@ button.on("click", () => {
 
 	let response = {
 		// filterData, filterCity, filterDate, filterCountry, filterState 
-		filterData, filterDate
+		filterData, filterCity, filterDate, filterState, filterCountry, filterShape
 	}
 
 	if (response.filterData.length !== 0) {
@@ -63,8 +62,8 @@ button.on("click", () => {
 	}
 		//else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0 || response.filterCountry.length !== 0 ))){
 			//populate(filterCity) || populate(filterDate) || populate(filterCountry);
-		else if (response.filterData.length === 0 && (( response.filterDate.length !== 0))){
-			 populate(filterDate);
+		else if (response.filterData.length === 0 && ((response.filterCity.length !== 0 || response.filterDate.length !== 0 || response.filterState.length !== 0 || response.filterCountry.length !== 0 || response.filterShape.length !== 0))){
+			populate(filterCity) || populate(filterDate) || populate(filterState) || populate(filterCountry) || populate(filterShape);
 		}
 		else {
 			tbody.append("tr").append("td").text("No results found!"); 
